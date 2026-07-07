@@ -10,7 +10,7 @@ UI/UX Design Internship Project
 
 ## Designed By
 
-**Dharanika**
+**Renuga**
 
 ## Objective
 
