@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedMind AI - Settings</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏥</text></svg>">
+    <script src="js/theme.js"></script>
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/settings.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        🏥 MedMind AI
+    </div>
+
+    <div class="header-right">
+
+        <button class="notification-btn">🔔</button>
+
+        <button id="logoutBtn">Logout</button>
+
+    </div>
+
+</header>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <h2>Dashboard</h2>
+
+        <ul>
+
+            <li onclick="window.location.href='dashboard.html'">🏠 Home</li>
+
+            <li onclick="window.location.href='profile.html'">👤 Profile</li>
+
+            <li onclick="window.location.href='appointment.html'">📅 Book Appointment</li>
+
+            <li onclick="window.location.href='myappointments.html'">📋 My Appointments</li>
+
+            <li onclick="window.location.href='medicalrecords.html'">📄 Medical Records</li>
+
+            <li onclick="window.location.href='prescriptions.html'">💊 Prescriptions</li>
+
+            <li onclick="window.location.href='reports.html'">📊 Reports</li>
+
+            <li class="active">⚙️ Settings</li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="content">
+
+        <div class="settings-card">
+
+            <h1>⚙️ Settings</h1>
+
+            <p class="subtitle">
+                Manage your account preferences and security.
+            </p>
+
+            <!-- Profile Settings -->
+
+            <div class="setting-section">
+
+                <h2>👤 Profile Settings</h2>
+
+                <button id="editProfileBtn">
+                    Edit Profile
+                </button>
+
+            </div>
+
+            <!-- Password -->
+
+            <div class="setting-section">
+
+                <h2>🔒 Password</h2>
+
+                <button id="changePasswordBtn">
+                    Change Password
+                </button>
+
+            </div>
+
+            <!-- Notifications -->
+
+            <div class="setting-section">
+
+                <h2>🔔 Notifications</h2>
+
+                <label>
+
+                    <input type="checkbox" id="notificationToggle" checked>
+
+                    Enable Notifications
+
+                </label>
+
+            </div>
+
+            <!-- Dark Mode -->
+
+            <div class="setting-section">
+
+                <h2>🌙 Appearance</h2>
+
+                <label>
+
+                    <input type="checkbox" id="darkModeToggle">
+
+                    Enable Dark Mode
+
+                </label>
+
+            </div>
+
+            <!-- Language -->
+
+            <div class="setting-section">
+
+                <h2>🌐 Language</h2>
+
+                <select id="languageSelect">
+
+                    <option>English</option>
+
+                    <option>Tamil</option>
+
+                    <option>Hindi</option>
+
+                </select>
+
+            </div>
+
+            <!-- Save -->
+
+            <div class="save-section">
+
+                <button id="saveSettings">
+
+                    💾 Save Settings
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <footer class="site-footer">
+            <p>MedMind AI &copy; 2026 - Renuga D Final Year Student</p>
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="js/settings.js"></script>
+
+</body>
+
+</html>

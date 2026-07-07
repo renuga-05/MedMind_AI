@@ -1,0 +1,47 @@
+DAY--2
+
+Task 2: Reference Project Study
+
+Project 1: Healthcare Management System
+- Patient dashboard
+- Appointment booking
+- Medical records
+
+Project 2: Hospital Management System
+- Doctor management
+- Patient details
+- Appointment scheduling
+
+Project 3: Patient Portal
+- User login
+- Health records
+- Prescription tracking
+
+Inspiration for My Project:
+- Simple dashboard design
+- Easy appointment booking
+- Quick access to medical records
+- Clean and user-friendly interface
+
+Task 3: Technology Learning
+
+Tutorial Watched:
+HTML Full Course for Beginners
+
+Key Learnings:
+- Structure of a web page
+- HTML tags and elements
+- Headings, paragraphs, and links
+- Forms and input fields
+- Creating basic page layouts
+
+How it helps my project:
+HTML will be used to create the Healthcare Patient Portal screens and interface structure.
+
+Three Important Insights from the Dataset
+
+1. Age is an important factor in heart failure cases. Most patients in the dataset belong to the middle-aged and elderly groups, indicating that heart-related conditions are more common among older individuals.
+
+2. Ejection fraction values vary significantly among patients. Lower ejection fraction values suggest reduced heart pumping efficiency and may be associated with a higher risk of severe heart conditions.
+
+3. Serum creatinine levels show noticeable variation across patients. Elevated serum creatinine levels may indicate kidney function issues, which are often linked with complications in heart failure patients.

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedMind AI - Reports</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏥</text></svg>">
+    <script src="js/theme.js"></script>
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/reports.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        🏥 MedMind AI
+    </div>
+
+    <div class="header-right">
+
+        <button class="notification-btn">🔔</button>
+
+        <button id="logoutBtn">Logout</button>
+
+    </div>
+
+</header>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <h2>Dashboard</h2>
+
+        <ul>
+
+            <li onclick="window.location.href='dashboard.html'">
+                🏠 Home
+            </li>
+
+            <li onclick="window.location.href='profile.html'">
+                👤 Profile
+            </li>
+
+            <li onclick="window.location.href='appointment.html'">
+                📅 Book Appointment
+            </li>
+
+            <li onclick="window.location.href='myappointments.html'">
+                📋 My Appointments
+            </li>
+
+            <li onclick="window.location.href='medicalrecords.html'">
+                📄 Medical Records
+            </li>
+
+            <li onclick="window.location.href='prescriptions.html'">
+                💊 Prescriptions
+            </li>
+
+            <li onclick="window.location.href='reports.html'">📊 Reports</li>
+
+            <li onclick="window.location.href='settings.html'">⚙️ Settings</li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="content">
+
+        <div class="report-header">
+
+            <h1>📊 Health Reports</h1>
+
+            <p>Your personal healthcare summary at a glance.</p>
+
+        </div>
+
+        <!-- Summary Cards -->
+
+        <div class="report-cards">
+
+            <div class="card">
+                <h2 id="appointmentCount">0</h2>
+                <p>Appointments</p>
+            </div>
+
+            <div class="card">
+                <h2 id="recordCount">0</h2>
+                <p>Medical Records</p>
+            </div>
+
+            <div class="card">
+                <h2 id="prescriptionCount">0</h2>
+                <p>Active Prescriptions</p>
+            </div>
+
+            <div class="card">
+                <h2>Good</h2>
+                <p>Health Status</p>
+            </div>
+
+        </div>
+
+        <!-- Recent Activity -->
+
+        <div class="activity-section">
+
+            <h2>Recent Activity</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Date</th>
+
+                        <th>Activity</th>
+
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="activityTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="download-section">
+
+            <button id="downloadReport">
+
+                📥 Download Health Report
+
+            </button>
+
+        </div>
+
+        <footer class="site-footer">
+            <p>MedMind AI &copy; 2026 - Renuga D Final Year Student</p>
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="js/reports.js"></script>
+
+</body>
+
+</html>

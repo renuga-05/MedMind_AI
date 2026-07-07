@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedMind AI - Book Appointment</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏥</text></svg>">
+    <script src="js/theme.js"></script>
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/appointment.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            🏥 MedMind AI
+
+        </div>
+
+        <div class="header-right">
+
+            <button class="notification-btn">🔔</button>
+
+            <button id="logoutBtn">Logout</button>
+
+        </div>
+
+    </header>
+
+    <!-- ================= MAIN CONTAINER ================= -->
+
+    <div class="container">
+
+        <!-- ============== SIDEBAR ============== -->
+
+        <aside class="sidebar">
+
+            <h2>Dashboard</h2>
+
+            <ul>
+
+                <li onclick="window.location.href='dashboard.html'">🏠 Home</li>
+                <li onclick="window.location.href='profile.html'">👤 Profile</li>
+                <li class="active">📅 Book Appointment</li>
+
+                <li onclick="window.location.href='myappointments.html'">📋 My Appointments</li>
+
+                <li onclick="window.location.href='medicalrecords.html'">📄 Medical Records</li>
+
+                <li onclick="window.location.href='prescriptions.html'">💊 Prescriptions</li>
+
+                <li onclick="window.location.href='reports.html'">📊 Reports</li>
+
+                <li onclick="window.location.href='settings.html'">⚙️ Settings</li>
+
+            </ul>
+
+        </aside>
+
+        <!-- ============== CONTENT ============== -->
+
+        <main class="content">
+
+            <div class="appointment-card">
+
+                <h1>📅 Book an Appointment</h1>
+
+                <p class="subtitle">
+
+                    Schedule an appointment with our experienced healthcare specialists.
+
+                </p>
+
+                <form id="appointmentForm">
+
+                    <!-- Row 1 -->
+
+                    <div class="row">
+
+                        <div class="input-group">
+
+                            <label>👨‍⚕️ Select Doctor</label>
+
+                            <select id="doctor">
+
+                                <option value="">Choose Doctor</option>
+
+                                <option>Dr. Sarah Johnson</option>
+
+                                <option>Dr. Michael Brown</option>
+
+                                <option>Dr. Emily Davis</option>
+
+                                <option>Dr. Robert Wilson</option>
+
+                                <option>Dr. Sophia Anderson</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>🏥 Department</label>
+
+                            <select id="department">
+
+                                <option value="">Choose Department</option>
+
+                                <option>Cardiology</option>
+
+                                <option>Neurology</option>
+
+                                <option>Orthopedics</option>
+
+                                <option>Dermatology</option>
+
+                                <option>Pediatrics</option>
+
+                                <option>General Medicine</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Row 2 -->
+
+                    <div class="row">
+
+                        <div class="input-group">
+
+                            <label>📅 Appointment Date</label>
+
+                            <input
+                                type="date"
+                                id="date"
+                            >
+
+                        </div>
+
+                        <div class="input-group">
+
+                            <label>⏰ Time Slot</label>
+
+                            <select id="time">
+
+                                <option value="">Choose Time</option>
+
+                                <option>09:00 AM</option>
+
+                                <option>10:00 AM</option>
+
+                                <option>11:00 AM</option>
+
+                                <option>12:00 PM</option>
+
+                                <option>02:00 PM</option>
+
+                                <option>03:00 PM</option>
+
+                                <option>04:00 PM</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Symptoms -->
+
+                    <div class="input-group">
+
+                        <label>📝 Symptoms / Reason for Visit</label>
+
+                        <textarea
+                            id="symptoms"
+                            rows="6"
+                            placeholder="Describe your symptoms or reason for booking an appointment..."
+                        ></textarea>
+
+                    </div>
+
+                    <!-- Appointment Information -->
+
+                    <div class="appointment-info">
+
+                        <h3>Appointment Guidelines</h3>
+
+                        <ul>
+
+                            <li>✔ Please arrive at least 15 minutes before your appointment.</li>
+
+                            <li>✔ Bring your previous medical reports if available.</li>
+
+                            <li>✔ Carry a valid photo ID.</li>
+
+                            <li>✔ You can reschedule or cancel your appointment later.</li>
+
+                        </ul>
+
+                    </div>
+
+                    <!-- Button -->
+
+                    <button type="submit">
+
+                        📅 Book Appointment
+
+                    </button>
+
+                </form>
+
+            </div>
+
+            <footer class="site-footer">
+                <p>MedMind AI &copy; 2026 - Renuga D Final Year Student</p>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="js/appointment.js"></script>
+
+</body>
+
+</html>

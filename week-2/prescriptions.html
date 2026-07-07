@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedMind AI - Prescriptions</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏥</text></svg>">
+    <script src="js/theme.js"></script>
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/prescriptions.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <div class="logo">
+        🏥 MedMind AI
+    </div>
+
+    <div class="header-right">
+
+        <button class="notification-btn">🔔</button>
+
+        <button id="logoutBtn">Logout</button>
+
+    </div>
+
+</header>
+
+<div class="container">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <h2>Dashboard</h2>
+
+        <ul>
+
+            <li onclick="window.location.href='dashboard.html'">
+                🏠 Home
+            </li>
+
+            <li onclick="window.location.href='profile.html'">
+                👤 Profile
+            </li>
+
+            <li onclick="window.location.href='appointment.html'">
+                📅 Book Appointment
+            </li>
+
+            <li onclick="window.location.href='myappointments.html'">
+                📋 My Appointments
+            </li>
+
+            <li onclick="window.location.href='medicalrecords.html'">
+                📄 Medical Records
+            </li>
+
+            <li class="active">
+                💊 Prescriptions
+            </li>
+
+            <li onclick="window.location.href='reports.html'">📊 Reports</li>
+
+            <li onclick="window.location.href='settings.html'">⚙️ Settings</li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="content">
+
+        <div class="prescription-card">
+
+            <h1>💊 Prescriptions</h1>
+
+            <p class="subtitle">
+
+                View your prescribed medicines and dosage schedule.
+
+            </p>
+
+            <!-- Search -->
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchMedicine"
+                    placeholder="🔍 Search Medicine..."
+                >
+
+            </div>
+
+            <!-- Table -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Medicine</th>
+
+                            <th>Dosage</th>
+
+                            <th>Frequency</th>
+
+                            <th>Start Date</th>
+
+                            <th>End Date</th>
+
+                            <th>Doctor</th>
+
+                            <th>Status</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="prescriptionTable">
+
+                        <!-- prescriptions.js will load data -->
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- Empty State -->
+
+            <div
+                id="noPrescription"
+                class="empty-message"
+                style="display:none;"
+            >
+
+                <h2>No Prescriptions Found</h2>
+
+                <p>
+
+                    Your prescribed medicines will appear here.
+
+                </p>
+
+                <button
+                    onclick="window.location.href='medicalrecords.html'"
+                >
+
+                    📄 View Medical Records
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <footer class="site-footer">
+            <p>MedMind AI &copy; 2026 - Renuga D Final Year Student</p>
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="js/prescriptions.js"></script>
+
+</body>
+
+</html>

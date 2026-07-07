@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedMind AI - Dashboard</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏥</text></svg>">
+    <script src="js/theme.js"></script>
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            🏥 <span>MedMind AI</span>
+
+        </div>
+
+        <div class="header-right">
+
+            <button class="notification-btn">🔔</button>
+
+            <button id="logoutBtn">Logout</button>
+
+        </div>
+
+    </header>
+
+    <!-- ================= MAIN CONTAINER ================= -->
+
+    <div class="container">
+
+        <!-- ============== SIDEBAR ============== -->
+
+        <aside class="sidebar">
+
+            <h2>Dashboard</h2>
+
+            <ul>
+
+            <li class="active" onclick="window.location.href='dashboard.html'">🏠 Home</li>
+            <li onclick="window.location.href='profile.html'">👤 Profile</li>
+            <li onclick="window.location.href='appointment.html'">📅 Book Appointment</li>
+            <li onclick="window.location.href='myappointments.html'">📋 My Appointments</li>
+            <li onclick="window.location.href='medicalrecords.html'">📄 Medical Records</li>
+            <li onclick="window.location.href='prescriptions.html'">💊 Prescriptions</li>
+
+            <li onclick="window.location.href='reports.html'">📊 Reports</li>
+
+            <li onclick="window.location.href='settings.html'">⚙️ Settings</li>
+
+            </ul>
+
+        </aside>
+
+        <!-- ============== CONTENT ============== -->
+
+        <main class="content">
+
+            <!-- Welcome -->
+
+            <section class="welcome-card">
+
+                <h1>
+                    Welcome,
+                    <span id="userName">Patient</span>
+                    👋
+                </h1>
+
+                <p>
+                    We're glad to see you again.
+                    Manage your healthcare services from one secure place.
+                </p>
+
+            </section>
+
+            <!-- Summary Cards -->
+
+            <section class="summary">
+
+                <div class="card">
+
+                    <h3>📅 Appointments</h3>
+
+                    <p>0 Upcoming</p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>💊 Prescriptions</h3>
+
+                    <p>0 Active</p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>📄 Medical Records</h3>
+
+                    <p>0 Records</p>
+
+                </div>
+
+                <div class="card">
+
+                    <h3>❤️ Health Status</h3>
+
+                    <p>Healthy</p>
+
+                </div>
+
+            </section>
+
+            <!-- Patient Information -->
+
+            <section class="profile-card">
+
+                <h2>Patient Information</h2>
+
+                <div class="info-grid">
+
+                    <div>
+
+                        <strong>👤 Name</strong>
+
+                        <p id="name">---</p>
+
+                    </div>
+
+                    <div>
+
+                        <strong>📧 Email</strong>
+
+                        <p id="email">---</p>
+
+                    </div>
+
+                    <div>
+
+                        <strong>📞 Phone</strong>
+
+                        <p id="phone">---</p>
+
+                    </div>
+
+                    <div>
+
+                        <strong>🎂 Age</strong>
+
+                        <p id="age">---</p>
+
+                    </div>
+
+                    <div>
+
+                        <strong>⚧ Gender</strong>
+
+                        <p id="gender">---</p>
+
+                    </div>
+
+                    <div>
+
+                        <strong>🩸 Blood Group</strong>
+
+                        <p id="blood">---</p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Quick Actions -->
+
+            <section class="actions">
+
+                <h2>Quick Actions</h2>
+
+                <div class="action-buttons">
+
+                    <button>📅 Book Appointment</button>
+
+                    <button>📄 Medical Records</button>
+
+                    <button>💊 View Prescriptions</button>
+
+                    <button>👤 Edit Profile</button>
+
+                </div>
+
+            </section>
+
+            <footer class="site-footer">
+                <p>MedMind AI &copy; 2026 - Renuga D Final Year Student</p>
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

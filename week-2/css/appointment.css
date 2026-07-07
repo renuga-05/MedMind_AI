@@ -1,0 +1,488 @@
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:var(--bg-light);
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.header{
+
+    height:80px;
+
+    background:var(--primary-gradient);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 40px;
+
+    color:white;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+.logo{
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+.header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.notification-btn{
+
+    width:50px;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:var(--white);
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.notification-btn:hover{
+
+    transform:scale(1.1);
+
+}
+
+#logoutBtn{
+
+    padding:14px 30px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:var(--white);
+
+    color:var(--primary);
+
+    font-size:18px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#logoutBtn:hover{
+
+    background:var(--primary-light-hover);
+
+}
+
+/* ==========================================
+   CONTAINER
+========================================== */
+
+.container{
+
+    display:flex;
+
+}
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.sidebar{
+
+    width:270px;
+
+    min-height:calc(100vh - 80px);
+
+    background:var(--white);
+
+    padding:30px;
+
+    box-shadow:5px 0 20px rgba(0,0,0,.08);
+
+}
+
+.sidebar h2{
+
+    color:var(--primary);
+
+    font-size:30px;
+
+    margin-bottom:35px;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar li{
+
+    padding:18px;
+
+    margin-bottom:15px;
+
+    border-radius:12px;
+
+    font-size:19px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.sidebar li:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+    transform:translateX(8px);
+
+}
+
+.active{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.content{
+
+    flex:1;
+
+    padding:40px;
+
+}
+
+/* ==========================================
+   APPOINTMENT CARD
+========================================== */
+
+.appointment-card{
+
+    background:var(--white);
+
+    border-radius:20px;
+
+    padding:40px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    animation:fadeIn .8s ease;
+
+}
+
+.appointment-card h1{
+
+    color:var(--primary);
+
+    font-size:40px;
+
+    text-align:center;
+
+}
+
+.subtitle{
+
+    text-align:center;
+
+    color:var(--text-muted);
+
+    font-size:18px;
+
+    margin:15px 0 40px;
+
+}
+
+/* ==========================================
+   FORM
+========================================== */
+
+.row{
+
+    display:flex;
+
+    gap:25px;
+
+    margin-bottom:25px;
+
+}
+
+.input-group{
+
+    width:100%;
+
+}
+
+label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:var(--text-color);
+
+}
+
+input,
+select,
+textarea{
+
+    width:100%;
+
+    padding:16px;
+
+    border:1px solid var(--border-color);
+
+    border-radius:10px;
+
+    font-size:17px;
+
+    transition:.3s;
+
+}
+
+textarea{
+
+    resize:vertical;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+
+    outline:none;
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 10px rgba(74, 130, 119, .25);
+
+}
+
+/* ==========================================
+   GUIDELINES
+========================================== */
+
+.appointment-info{
+
+    margin-top:30px;
+
+    background:var(--primary-light);
+
+    border-left:6px solid var(--primary);
+
+    padding:25px;
+
+    border-radius:12px;
+
+}
+
+.appointment-info h3{
+
+    color:var(--primary);
+
+    font-size:24px;
+
+    margin-bottom:15px;
+
+}
+
+.appointment-info ul{
+
+    padding-left:20px;
+
+}
+
+.appointment-info li{
+
+    font-size:17px;
+
+    margin-bottom:12px;
+
+    line-height:1.7;
+
+    color:var(--text-color);
+
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+button[type="submit"]{
+
+    width:100%;
+
+    margin-top:35px;
+
+    padding:18px;
+
+    background:var(--primary-gradient);
+
+    color:white;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:21px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+button[type="submit"]:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 20px rgba(74, 130, 119, .25);
+
+}
+
+/* ==========================================
+   ANIMATION
+========================================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:950px){
+
+.container{
+
+    flex-direction:column;
+
+}
+
+.sidebar{
+
+    width:100%;
+
+    min-height:auto;
+
+}
+
+.content{
+
+    padding:20px;
+
+}
+
+.row{
+
+    flex-direction:column;
+
+}
+
+.header{
+
+    flex-direction:column;
+
+    height:auto;
+
+    padding:20px;
+
+    gap:15px;
+
+}
+
+.logo{
+
+    font-size:24px;
+
+}
+
+.appointment-card{
+
+    padding:25px;
+
+}
+
+.appointment-card h1{
+
+    font-size:32px;
+
+}
+
+.subtitle{
+
+    font-size:16px;
+
+}
+
+}

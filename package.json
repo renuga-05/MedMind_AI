@@ -1,0 +1,8 @@
+{
+  "name": "healthcare-patient-portal",
+  "version": "1.0.0",
+  "description": "Healthcare Patient Portal",
+  "scripts": {
+    "dev": "npx --yes http-server . -c-1 -p 3000 -o /week-2/login.html"
+  }
+}

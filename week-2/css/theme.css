@@ -1,0 +1,361 @@
+/* theme.css - MedMind AI Soothing Healthcare Theme */
+:root {
+    /* Subtle & Calming Sage Teal Color Palette - DARK MODE BY DEFAULT */
+    --primary: #82c4b5;
+    --primary-light: #1c2a26;
+    --primary-gradient: linear-gradient(135deg, #3a6258, #233b35);
+    --primary-dark: #9bd7ca;
+    --primary-light-hover: #293e38;
+    --bg-light: #121817;
+    --text-color: #ffffff;       /* Pure white for dark mode readability */
+    --text-muted: #e0e0e0;       /* High-contrast light gray */
+    --white: #1a2321;
+    --border-color: #344844;
+    --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    --hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    
+    /* Notification/Badge Colors - keep them soft */
+    --danger: #d9534f;
+    --success: #2e9b8f;          
+    --warning: #e08e26;          
+    
+    /* Layout styling defaults */
+    --font-family: 'Poppins', sans-serif;
+}
+
+/* Light theme overrides */
+.light-theme, [data-theme="light"] {
+    --primary: #3b6b60;          /* Darker calming sage/teal for better visibility */
+    --primary-gradient: linear-gradient(135deg, #3b6b60, #5c8f82);
+    --primary-dark: #284c44;
+    --primary-light: #e8f2f0;
+    --primary-light-hover: #d2e5e1;
+    --bg-light: #f4f8f7;
+    --text-color: #000000;       /* High-contrast black for light mode */
+    --text-muted: #222222;       /* Near-black muted text for high visibility */
+    --white: #ffffff;
+    --border-color: #ccd9d5;     /* Darker border for higher contrast */
+    --card-shadow: 0 10px 25px rgba(62, 99, 88, 0.08);
+    --hover-shadow: 0 15px 35px rgba(62, 99, 88, 0.15);
+}
+
+/* Base resets & theme styles */
+body {
+    background-color: var(--bg-light) !important;
+    color: var(--text-color) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Global input overrides to guarantee text visibility in both themes */
+input, select, textarea {
+    background-color: var(--white) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--border-color) !important;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 8px rgba(78, 130, 119, 0.4) !important;
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--text-muted) !important;
+    opacity: 0.8 !important;
+}
+
+/* Sidebar and active menu items text readability overrides */
+.sidebar li {
+    color: var(--text-color) !important;
+}
+.sidebar li:hover {
+    color: #ffffff !important;
+}
+.sidebar .active {
+    color: #ffffff !important;
+}
+
+/* Welcome Card font accessibility */
+.welcome-card {
+    color: #ffffff !important; /* Always white text on gradients */
+}
+.welcome-card h1, .welcome-card p, .welcome-card span {
+    color: #ffffff !important;
+}
+
+/* Card titles readability */
+.card h3, .profile-card h2, .records-card h1, .appointment-card h1, .prescription-card h1, .settings-card h1 {
+    color: var(--primary) !important;
+}
+
+/* Table styling visibility fixes for dark theme */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th {
+    background-color: var(--primary) !important;
+    color: #ffffff !important;
+}
+td {
+    color: var(--text-color) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+tr:hover {
+    background-color: var(--primary-light-hover) !important;
+}
+
+/* Site Footer styling */
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 45px;
+    font-size: 13px;
+    color: var(--text-muted) !important;
+    border-top: 1px solid var(--border-color);
+    width: 100%;
+    clear: both;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-box .site-footer,
+.register-box .site-footer {
+    margin-top: 25px;
+    padding: 15px 0 0 0;
+    border-top: 1px solid var(--border-color);
+    font-size: 12px;
+}
+
+/* Accessibility overrides for perfect text contrast (Black in light theme) */
+.register, .login, .register p, .login p {
+    color: var(--text-color) !important;
+}
+
+.subtitle {
+    color: var(--text-muted) !important;
+}
+
+.card p {
+    color: var(--text-color) !important;
+}
+
+.site-footer p {
+    color: var(--text-muted) !important;
+}
+
+/* Page Loader Preloading Animation CSS */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(18, 24, 23, 0.85); /* dark transparent */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.page-loader.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.light-theme .page-loader {
+    background: rgba(244, 248, 247, 0.88); /* light transparent */
+}
+
+.loader-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.medical-icon-container {
+    font-size: 60px;
+    animation: pulse-hospital 1.5s ease-in-out infinite;
+    display: inline-block;
+    filter: drop-shadow(0 0 10px rgba(130, 196, 181, 0.5));
+}
+
+@keyframes pulse-hospital {
+    0% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(130, 196, 181, 0.4)); }
+    50% { transform: scale(1.18); filter: drop-shadow(0 0 22px rgba(130, 196, 181, 0.8)); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(130, 196, 181, 0.4)); }
+}
+
+.heartbeat-svg {
+    width: 150px;
+    height: 60px;
+    fill: none;
+    stroke: var(--primary);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.pulse-line {
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: draw-pulse 1.8s linear infinite;
+}
+
+@keyframes draw-pulse {
+    0% { stroke-dashoffset: 600; }
+    100% { stroke-dashoffset: 0; }
+}
+
+.loader-text {
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--primary);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: pulse-text 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-text {
+    0% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+.page-loader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Custom Modal Dialogs (Alert & Confirm) */
+.custom-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(18, 24, 23, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.light-theme .custom-modal-overlay {
+    background: rgba(244, 248, 247, 0.6);
+}
+
+.custom-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.custom-modal {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: var(--hover-shadow);
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.custom-modal-overlay.active .custom-modal {
+    transform: scale(1);
+}
+
+.modal-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.modal-message {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.modal-btn {
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.modal-btn:active {
+    transform: scale(0.95);
+}
+
+.modal-btn-primary {
+    background-color: var(--primary);
+    color: #ffffff;
+}
+
+.modal-btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.modal-btn-secondary {
+    background-color: var(--primary-light-hover);
+    color: var(--primary);
+}
+
+.modal-btn-secondary:hover {
+    background-color: var(--border-color);
+}
+
+/* Header Profile Button Styling */
+.header-profile-btn {
+    padding: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--primary) !important;
+    border: 1px solid var(--border-color);
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.header-profile-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    background: var(--primary-light-hover);
+    border-color: var(--primary);
+    box-shadow: 0 8px 16px rgba(130, 196, 181, 0.25);
+}
+
+.header-profile-btn:active {
+    transform: scale(0.95);
+}
+
