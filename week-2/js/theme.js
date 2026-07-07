@@ -79,6 +79,15 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
+
+    // 3. Inject Chatbot Script if user is logged in (excluding login and register pages)
+    const isAuthPage = window.location.pathname.includes("login.html") || window.location.pathname.includes("register.html");
+    if (!isAuthPage && localStorage.getItem("loggedInUser") && !document.getElementById("medmind-chatbot-script")) {
+        const chatScript = document.createElement("script");
+        chatScript.id = "medmind-chatbot-script";
+        chatScript.src = "js/chatbot.js";
+        document.body.appendChild(chatScript);
+    }
 });
 
 // ==========================================
