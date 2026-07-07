@@ -102,67 +102,46 @@ medicalRecords = medicalRecords.filter(function(record){
 // ======================================
 
 function displayRecords(records){
-
-    const table = document.getElementById("medicalTable");
-
+    const grid = document.getElementById("recordsGrid");
     const empty = document.getElementById("noRecords");
-
-    table.innerHTML = "";
+    
+    grid.innerHTML = "";
 
     if(records.length === 0){
-
         empty.style.display = "block";
-
         return;
-
     }
 
     empty.style.display = "none";
 
     records.forEach(function(record){
+        let deptClass = "dept-general";
+        const dept = record.department.toLowerCase();
+        if (dept.includes("cardio")) deptClass = "dept-cardiology";
+        else if (dept.includes("derm")) deptClass = "dept-dermatology";
 
-        table.innerHTML += `
-
-        <tr>
-
-            <td>${record.visitDate}</td>
-
-            <td>${record.doctor}</td>
-
-            <td>${record.department}</td>
-
-            <td>${record.diagnosis}</td>
-
-            <td>${record.prescription}</td>
-
-            <td>${record.labReport}</td>
-
-            <td>
-
-                <button
-                    class="view-btn"
-                    onclick="viewRecord('${record.doctor}')">
-
-                    View
-
-                </button>
-
-                <button
-                    class="download-btn"
-                    onclick="downloadRecord('${record.doctor}')">
-
-                    Download
-
-                </button>
-
-            </td>
-
-        </tr>
-
+        grid.innerHTML += `
+        <div class="record-card">
+            <div class="record-card-header">
+                <span class="record-date">📅 ${record.visitDate}</span>
+                <span class="dept-badge ${deptClass}">${record.department}</span>
+            </div>
+            <div class="record-doc">👨‍⚕️ ${record.doctor}</div>
+            <div class="record-diag-block">
+                <span class="record-diag-label">Diagnosis</span>
+                <span class="record-diag-val">${record.diagnosis}</span>
+            </div>
+            <div class="record-details-mini">
+                <div>💊 <strong>Prescription:</strong> ${record.prescription}</div>
+                <div>🧪 <strong>Lab Work:</strong> ${record.labReport}</div>
+            </div>
+            <div class="record-actions-row">
+                <button class="view-btn" onclick="viewRecord('${record.doctor}')">View</button>
+                <button class="download-btn" onclick="downloadRecord('${record.doctor}')">Download</button>
+            </div>
+        </div>
         `;
-
     });
-
 }
 
 // ======================================
@@ -400,3 +379,88 @@ document.getElementById("searchRecord").addEventListener("keyup", function(){
 // ======================================
 
 displayRecords(medicalRecords);
+
+// ======================================
+// ADD RECORD MODAL HANDLERS
+// ======================================
+
+const addModal = document.getElementById("addRecordModal");
+const openAddModalBtn = document.getElementById("openAddModalBtn");
+const closeAddModalBtn = document.getElementById("closeAddModalBtn");
+const cancelAddModalBtn = document.getElementById("cancelAddModalBtn");
+const addRecordForm = document.getElementById("addRecordForm");
+const newVisitDateInput = document.getElementById("newVisitDate");
+
+// Set default date to today
+if (newVisitDateInput) {
+    newVisitDateInput.value = new Date().toISOString().split("T")[0];
+}
+
+if (openAddModalBtn) {
+    openAddModalBtn.addEventListener("click", function() {
+        addModal.classList.add("active");
+        if (newVisitDateInput) {
+            newVisitDateInput.value = new Date().toISOString().split("T")[0];
+        }
+    });
+}
+
+const hideAddModal = function() {
+    addModal.classList.remove("active");
+    addRecordForm.reset();
+};
+
+if (closeAddModalBtn) closeAddModalBtn.addEventListener("click", hideAddModal);
+if (cancelAddModalBtn) cancelAddModalBtn.addEventListener("click", hideAddModal);
+
+// Close on clicking overlay
+if (addModal) {
+    addModal.addEventListener("click", function(e) {
+        if (e.target === addModal) {
+            hideAddModal();
+        }
+    });
+}
+
+// Handle Form Submit
+if (addRecordForm) {
+    addRecordForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const dateVal = document.getElementById("newVisitDate").value;
+        const doctorVal = document.getElementById("newDoctor").value.trim();
+        const departmentVal = document.getElementById("newDepartment").value;
+        const diagnosisVal = document.getElementById("newDiagnosis").value.trim();
+        const prescriptionVal = document.getElementById("newPrescription").value.trim();
+        const labReportVal = document.getElementById("newLabReport").value.trim();
+
+        const newRec = {
+            patientEmail: loggedInUser.email,
+            visitDate: dateVal,
+            doctor: doctorVal,
+            department: departmentVal,
+            diagnosis: diagnosisVal,
+            prescription: prescriptionVal,
+            labReport: labReportVal
+        };
+
+        // Load all records from localStorage
+        let allRecords = JSON.parse(localStorage.getItem("medicalRecords")) || [];
+        allRecords.push(newRec);
+        
+        // Save back to localStorage
+        localStorage.setItem("medicalRecords", JSON.stringify(allRecords));
+
+        // Reload current user's filtered records list
+        medicalRecords = allRecords.filter(function(record) {
+            return record.patientEmail === loggedInUser.email;
+        });
+
+        // Re-render display
+        displayRecords(medicalRecords);
+
+        // Success alert
+        hideAddModal();
+        window.customAlert("Medical Consultation Record Added Successfully!");
+    });
+}

@@ -94,54 +94,23 @@
 
                 </p>
 
-                <!-- Search -->
-
-                <div class="search-box">
-
-                    <input
-                        type="text"
-                        id="searchRecord"
-                        placeholder="🔍 Search by Doctor or Department..."
-                    >
-
+                <!-- Search & Actions -->
+                <div class="records-actions">
+                    <div class="search-box">
+                        <input
+                            type="text"
+                            id="searchRecord"
+                            placeholder="🔍 Search by Doctor or Department..."
+                        >
+                    </div>
+                    <button id="openAddModalBtn" class="add-record-btn">
+                        <span>➕</span> Add Record
+                    </button>
                 </div>
 
-                <!-- Medical Records Table -->
-
-                <div class="table-container">
-
-                    <table>
-
-                        <thead>
-
-                            <tr>
-
-                                <th>Visit Date</th>
-
-                                <th>Doctor</th>
-
-                                <th>Department</th>
-
-                                <th>Diagnosis</th>
-
-                                <th>Prescription</th>
-
-                                <th>Lab Report</th>
-
-                                <th>Action</th>
-
-                            </tr>
-
-                        </thead>
-
-                        <tbody id="medicalTable">
-
-                            <!-- medicalrecords.js will load records here -->
-
-                        </tbody>
-
-                    </table>
-
+                <!-- Medical Records Grid -->
+                <div id="recordsGrid" class="records-grid">
+                    <!-- Cards will be dynamically injected here by medicalrecords.js -->
                 </div>
 
                 <!-- Empty Records -->
@@ -178,6 +147,55 @@
 
         </main>
 
+    </div>
+
+    <!-- ================= ADD RECORD MODAL ================= -->
+    <div id="addRecordModal" class="custom-modal-overlay">
+        <div class="custom-modal" style="max-width: 500px; text-align: left;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--border-color); padding-bottom: 12px; margin-bottom: 18px;">
+                <h3 style="margin: 0; color: var(--primary); font-size: 20px;">🏥 Add Consultation Record</h3>
+                <span style="font-size: 24px; cursor: pointer; color: var(--text-muted); font-weight: bold;" id="closeAddModalBtn">&times;</span>
+            </div>
+            <form id="addRecordForm">
+                <div style="margin-bottom: 12px;">
+                    <label style="display: block; font-size: 13px; font-weight: 500; margin-bottom: 5px; color: var(--text-muted);">Visit Date</label>
+                    <input type="date" id="newVisitDate" required style="width: 100%; padding: 10px; border-radius: 8px;">
+                </div>
+                <div style="margin-bottom: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 500; margin-bottom: 5px; color: var(--text-muted);">Doctor Name</label>
+                        <input type="text" id="newDoctor" placeholder="e.g. Dr. Sarah Johnson" required style="width: 100%; padding: 10px; border-radius: 8px;">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 13px; font-weight: 500; margin-bottom: 5px; color: var(--text-muted);">Department</label>
+                        <select id="newDepartment" required style="width: 100%; padding: 10px; border-radius: 8px;">
+                            <option value="Cardiology">Cardiology</option>
+                            <option value="Dermatology">Dermatology</option>
+                            <option value="General Medicine">General Medicine</option>
+                            <option value="Pediatrics">Pediatrics</option>
+                            <option value="Neurology">Neurology</option>
+                            <option value="Orthopedics">Orthopedics</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <label style="display: block; font-size: 13px; font-weight: 500; margin-bottom: 5px; color: var(--text-muted);">Diagnosis</label>
+                    <input type="text" id="newDiagnosis" placeholder="e.g. Mild Chest Pain" required style="width: 100%; padding: 10px; border-radius: 8px;">
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <label style="display: block; font-size: 13px; font-weight: 500; margin-bottom: 5px; color: var(--text-muted);">Prescription</label>
+                    <input type="text" id="newPrescription" placeholder="e.g. Paracetamol 500mg" required style="width: 100%; padding: 10px; border-radius: 8px;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 13px; font-weight: 500; margin-bottom: 5px; color: var(--text-muted);">Lab & Diagnostics</label>
+                    <input type="text" id="newLabReport" placeholder="e.g. Blood Test - Normal" required style="width: 100%; padding: 10px; border-radius: 8px;">
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                    <button type="button" class="modal-btn modal-btn-secondary" id="cancelAddModalBtn" style="padding: 10px 20px;">Cancel</button>
+                    <button type="submit" class="modal-btn modal-btn-primary" style="padding: 10px 20px;">Save Record</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
